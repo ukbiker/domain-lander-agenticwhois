@@ -3,27 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgenticWhois.com — For Sale</title>
+<title>AgenticWhois.com — Strategic Domain Acquisition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #080C10;
-    --bg2: #0C1219;
-    --surface: #111822;
-    --border: #1E2D3D;
-    --cyan: #00E5FF;
+    --bg:       #060A0F;
+    --bg2:      #0A1018;
+    --surface:  #0F1825;
+    --border:   #1A2840;
+    --border2:  #243550;
+    --cyan:     #00E5FF;
     --cyan-dim: #00B8CC;
-    --teal: #00FFB2;
-    --white: #F0F6FF;
-    --muted: #6B8299;
-    --mono: 'Space Mono', monospace;
-    --display: 'Syne', sans-serif;
-    --body: 'Inter', sans-serif;
+    --teal:     #00FFB2;
+    --gold:     #FFD166;
+    --white:    #EEF4FF;
+    --muted:    #5A7A99;
+    --muted2:   #8AAABB;
+    --mono:     'Space Mono', monospace;
+    --display:  'Syne', sans-serif;
+    --body:     'Inter', sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -34,105 +36,165 @@
     line-height: 1.6;
   }
 
-  /* ── GRID BACKGROUND ── */
+  /* Grid */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
+      linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ── NAV ── */
+  /* Orbs */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .orb-1 {
+    width: 700px; height: 700px;
+    background: rgba(0,229,255,0.055);
+    top: -250px; right: -200px;
+    animation: drift 14s ease-in-out infinite alternate;
+  }
+  .orb-2 {
+    width: 500px; height: 500px;
+    background: rgba(0,255,178,0.035);
+    bottom: 5%; left: -150px;
+    animation: drift 18s ease-in-out infinite alternate-reverse;
+  }
+  .orb-3 {
+    width: 300px; height: 300px;
+    background: rgba(255,209,102,0.025);
+    top: 50%; right: 10%;
+    animation: drift 22s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    from { transform: translate(0,0); }
+    to   { transform: translate(40px, 50px); }
+  }
+
+  /* Nav */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 1.25rem 2rem;
+    padding: 1.25rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0,229,255,0.08);
-    background: rgba(8,12,16,0.85);
-    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,229,255,0.07);
+    background: rgba(6,10,15,0.88);
+    backdrop-filter: blur(16px);
   }
-
   .nav-logo {
     font-family: var(--mono);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--cyan);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
-
   .nav-logo span { color: var(--muted); }
-
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-badge {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--teal);
+    border: 1px solid rgba(0,255,178,0.3);
+    padding: 0.3rem 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
   .nav-cta {
     font-family: var(--mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--bg);
     background: var(--cyan);
-    padding: 0.5rem 1.25rem;
+    padding: 0.55rem 1.25rem;
     text-decoration: none;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    font-weight: 700;
     transition: background 0.2s, transform 0.2s;
   }
-
   .nav-cta:hover { background: var(--teal); transform: translateY(-1px); }
 
-  /* ── HERO ── */
+  /* Hero */
   .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8rem 2rem 4rem;
-    max-width: 1100px;
+    padding: 9rem 2.5rem 5rem;
+    max-width: 1140px;
     margin: 0 auto;
     z-index: 1;
   }
-
-  .hero-tag {
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+    flex-wrap: wrap;
+  }
+  .eyebrow-tag {
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: var(--cyan);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 2rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
+    gap: 0.6rem;
   }
-
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--cyan);
+  .eyebrow-tag::before { content: '//'; color: var(--border2); }
+  .live-pill {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(0,255,178,0.08);
+    border: 1px solid rgba(0,255,178,0.25);
+    padding: 0.25rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .pulse {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(0,255,178,0.5); }
+    50%      { box-shadow: 0 0 0 7px rgba(0,255,178,0); }
   }
 
   .hero h1 {
     font-family: var(--display);
-    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-size: clamp(3rem, 8vw, 6.5rem);
     font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.4s forwards;
   }
-
-  .hero h1 .domain {
+  .hero h1 .line1 { display: block; color: var(--white); }
+  .hero h1 .line2 {
     display: block;
-    background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
+    background: linear-gradient(120deg, var(--cyan) 0%, var(--teal) 60%, var(--gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -140,27 +202,24 @@
 
   .hero-sub {
     font-family: var(--display);
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-    font-weight: 600;
-    color: var(--muted);
-    margin-bottom: 2rem;
-    max-width: 620px;
+    font-size: clamp(1rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: var(--muted2);
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
     opacity: 0;
     animation: fadeUp 0.8s 0.6s forwards;
   }
-
-  .hero-sub em {
-    color: var(--white);
-    font-style: normal;
-  }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
 
   .hero-desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--muted);
-    max-width: 540px;
-    line-height: 1.75;
-    margin-bottom: 3rem;
+    max-width: 560px;
+    line-height: 1.8;
     font-weight: 300;
+    margin-bottom: 3rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.8s forwards;
   }
@@ -172,10 +231,9 @@
     opacity: 0;
     animation: fadeUp 0.8s 1s forwards;
   }
-
   .btn-primary {
     font-family: var(--mono);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 1rem 2rem;
@@ -184,132 +242,146 @@
     text-decoration: none;
     font-weight: 700;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 24px rgba(0,229,255,0.25);
+    box-shadow: 0 0 28px rgba(0,229,255,0.22);
   }
-
   .btn-primary:hover {
     background: var(--teal);
     transform: translateY(-2px);
-    box-shadow: 0 0 36px rgba(0,255,178,0.35);
+    box-shadow: 0 0 40px rgba(0,255,178,0.3);
   }
-
   .btn-secondary {
     font-family: var(--mono);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 1rem 2rem;
-    border: 1px solid var(--border);
-    color: var(--muted);
+    border: 1px solid var(--border2);
+    color: var(--muted2);
     text-decoration: none;
     transition: border-color 0.2s, color 0.2s;
   }
-
   .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
 
-  /* ── GLOW ORBS ── */
-  .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .orb-1 {
-    width: 600px; height: 600px;
-    background: rgba(0,229,255,0.06);
-    top: -200px; right: -200px;
-    animation: drift 12s ease-in-out infinite alternate;
-  }
-
-  .orb-2 {
-    width: 400px; height: 400px;
-    background: rgba(0,255,178,0.04);
-    bottom: 10%; left: -100px;
-    animation: drift 16s ease-in-out infinite alternate-reverse;
-  }
-
-  @keyframes drift {
-    from { transform: translate(0,0); }
-    to { transform: translate(30px, 40px); }
-  }
-
-  /* ── DIVIDER ── */
+  /* Divider */
   .divider {
     border: none;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 0;
   }
 
-  /* ── SECTION ── */
+  /* Sections */
   section {
     position: relative;
     z-index: 1;
-    padding: 6rem 2rem;
-    max-width: 1100px;
+    padding: 6rem 2.5rem;
+    max-width: 1140px;
     margin: 0 auto;
   }
-
   .section-tag {
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     color: var(--cyan);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
-
-  .section-tag::before {
-    content: '//';
-    color: var(--border);
-  }
-
+  .section-tag::before { content: '//'; color: var(--border2); }
   section h2 {
     font-family: var(--display);
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 800;
     letter-spacing: -0.02em;
-    margin-bottom: 1rem;
     line-height: 1.1;
+    margin-bottom: 1rem;
   }
-
   section h2 .accent { color: var(--cyan); }
-
+  section h2 .gold { color: var(--gold); }
   .section-lead {
-    font-size: 1.05rem;
-    color: var(--muted);
-    max-width: 580px;
-    line-height: 1.75;
+    font-size: 1rem;
+    color: var(--muted2);
+    max-width: 600px;
+    line-height: 1.8;
     font-weight: 300;
     margin-bottom: 3rem;
   }
 
-  /* ── USE CASES GRID ── */
-  .use-cases {
+  /* ERC Banner */
+  .erc-banner {
+    border: 1px solid rgba(0,255,178,0.2);
+    border-left: 3px solid var(--teal);
+    background: rgba(0,255,178,0.04);
+    padding: 1.75rem 2rem;
+    margin-bottom: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .erc-badge {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--bg);
+    background: var(--teal);
+    padding: 0.4rem 0.75rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  .erc-text h3 {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+  .erc-text p {
+    font-size: 0.87rem;
+    color: var(--muted2);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .erc-text p strong { color: var(--white); font-weight: 500; }
+
+  /* Backers */
+  .backers {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .backer {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted2);
+    border: 1px solid var(--border2);
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .backer:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  /* Registry Cards */
+  .registry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   }
-
-  .use-case {
+  .reg-card {
     background: var(--bg2);
-    padding: 2rem;
+    padding: 2.25rem;
     position: relative;
     overflow: hidden;
     transition: background 0.3s;
   }
-
-  .use-case:hover { background: var(--surface); }
-
-  .use-case::before {
+  .reg-card:hover { background: var(--surface); }
+  .reg-card::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -319,192 +391,251 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-
-  .use-case:hover::before { transform: scaleX(1); }
-
-  .use-case-icon {
+  .reg-card:hover::after { transform: scaleX(1); }
+  .reg-number {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.62rem;
     color: var(--cyan);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+  .reg-card h3 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .reg-card .reg-sub {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.85rem;
     opacity: 0.8;
   }
-
-  .use-case h3 {
-    font-family: var(--display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-    color: var(--white);
-  }
-
-  .use-case p {
-    font-size: 0.88rem;
+  .reg-card p {
+    font-size: 0.87rem;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.7;
     font-weight: 300;
   }
+  .reg-card p strong { color: var(--muted2); font-weight: 400; }
 
-  /* ── WHY THIS DOMAIN ── */
-  .domain-stats {
+  /* Terminal */
+  .terminal {
+    background: #030609;
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--cyan);
+    padding: 2.25rem;
+    margin-top: 3rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    line-height: 2.1;
+    position: relative;
+  }
+  .terminal::before {
+    content: '● ● ●';
+    display: block;
+    color: var(--border2);
+    letter-spacing: 0.4em;
+    margin-bottom: 1.25rem;
+    font-size: 0.55rem;
+  }
+  .t-prompt { color: var(--teal); }
+  .t-cmd    { color: var(--white); }
+  .t-key    { color: var(--cyan); }
+  .t-val    { color: #9B8FFF; }
+  .t-addr   { color: var(--gold); font-size: 0.72rem; }
+  .t-ok     { color: var(--teal); }
+  .t-comment{ color: var(--muted); }
+  .t-section{ color: var(--border2); margin-top: 0.5rem; display: block; }
+
+  /* Why section stats */
+  .why-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
   }
-
-  .stat {
+  .why-item {
     border-left: 2px solid var(--cyan);
     padding-left: 1.5rem;
   }
-
-  .stat-number {
+  .why-item.gold-border { border-left-color: var(--gold); }
+  .why-val {
     font-family: var(--mono);
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--cyan);
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0.4rem;
   }
-
-  .stat-label {
-    font-size: 0.82rem;
+  .why-item.gold-border .why-val { color: var(--gold); }
+  .why-label {
+    font-size: 0.83rem;
     color: var(--muted);
-    line-height: 1.4;
+    line-height: 1.5;
     font-weight: 300;
   }
 
-  /* ── TERMINAL BLOCK ── */
-  .terminal {
-    background: #050810;
+  /* Use cases */
+  .use-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
     border: 1px solid var(--border);
-    border-top: 2px solid var(--cyan);
+    margin-top: 2.5rem;
+  }
+  .use-card {
+    background: var(--bg2);
     padding: 2rem;
-    margin-top: 3rem;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    line-height: 2;
+    transition: background 0.3s;
     position: relative;
     overflow: hidden;
   }
-
-  .terminal::before {
-    content: '● ● ●';
-    display: block;
-    color: var(--border);
-    letter-spacing: 0.3em;
+  .use-card:hover { background: var(--surface); }
+  .use-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .use-card:hover::before { transform: scaleX(1); }
+  .use-icon {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--gold);
+    letter-spacing: 0.18em;
     margin-bottom: 1rem;
-    font-size: 0.6rem;
+    opacity: 0.9;
+  }
+  .use-card h3 {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .use-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
   }
 
-  .t-prompt { color: var(--teal); }
-  .t-cmd { color: var(--white); }
-  .t-key { color: var(--cyan); }
-  .t-val { color: #9B8FFF; }
-  .t-comment { color: var(--muted); }
-
-  /* ── PRICE SECTION ── */
-  .price-section {
+  /* Acquisition */
+  .acq-box {
+    border: 1px solid var(--border2);
+    border-top: 2px solid var(--gold);
     background: var(--bg2);
-    border: 1px solid var(--border);
-    border-top: 2px solid var(--cyan);
     padding: 3rem;
+    margin-top: 3rem;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 3rem;
   }
-
-  .price-label {
+  .acq-label {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--muted);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
-
-  .price-amount {
+  .acq-price {
     font-family: var(--display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: var(--white);
     line-height: 1;
     margin-bottom: 0.5rem;
   }
-
-  .price-amount span { color: var(--cyan); }
-
-  .price-note {
+  .acq-price .curr { color: var(--gold); }
+  .acq-note {
     font-size: 0.82rem;
     color: var(--muted);
     font-weight: 300;
+    line-height: 1.6;
   }
-
-  .price-actions {
+  .acq-actions {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    min-width: 200px;
+    min-width: 210px;
   }
+  .btn-gold {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    background: var(--gold);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 0 24px rgba(255,209,102,0.2);
+  }
+  .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
 
-  /* ── CONTACT FORM ── */
-  .contact-wrap {
+  /* Contact */
+  .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     margin-top: 3rem;
     align-items: start;
   }
-
   .contact-info h3 {
     font-family: var(--display);
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
-
   .contact-info p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.75;
+    font-size: 0.88rem;
+    color: var(--muted2);
+    line-height: 1.8;
     font-weight: 300;
     margin-bottom: 1.5rem;
   }
-
   .contact-detail {
     font-family: var(--mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--cyan);
     letter-spacing: 0.05em;
-    line-height: 2;
+    line-height: 2.2;
   }
+  .contact-detail span { color: var(--muted); }
 
-  form { display: flex; flex-direction: column; gap: 1rem; }
-
-  form input, form textarea {
+  form { display: flex; flex-direction: column; gap: 0.85rem; }
+  form input, form textarea, form select {
     background: var(--surface);
     border: 1px solid var(--border);
     color: var(--white);
-    padding: 0.85rem 1rem;
+    padding: 0.9rem 1rem;
     font-family: var(--body);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 300;
     outline: none;
     transition: border-color 0.2s;
     width: 100%;
+    -webkit-appearance: none;
   }
-
-  form input:focus, form textarea:focus { border-color: var(--cyan); }
+  form input:focus, form textarea:focus, form select:focus { border-color: var(--cyan); }
   form input::placeholder, form textarea::placeholder { color: var(--muted); }
-  form textarea { height: 120px; resize: vertical; }
-
+  form select { color: var(--muted); cursor: pointer; }
+  form select option { background: var(--surface); color: var(--white); }
+  form textarea { height: 110px; resize: vertical; }
   form button {
     font-family: var(--mono);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 1rem;
@@ -514,72 +645,64 @@
     cursor: pointer;
     font-weight: 700;
     transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 0 20px rgba(0,229,255,0.2);
+    box-shadow: 0 0 20px rgba(0,229,255,0.18);
+  }
+  form button:hover { background: var(--teal); transform: translateY(-1px); }
+  .form-success {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--teal);
+    display: none;
+    margin-top: 0.5rem;
+    line-height: 1.6;
   }
 
-  form button:hover { background: var(--teal); transform: translateY(-1px); }
-
-  /* ── FOOTER ── */
-  footer {
+  /* Footer */
+  .footer-wrap {
     position: relative;
     z-index: 1;
     border-top: 1px solid var(--border);
-    padding: 2rem;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    max-width: 1100px;
-    margin: 0 auto;
   }
-
   footer p {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.67rem;
     color: var(--muted);
     letter-spacing: 0.05em;
   }
-
   footer a { color: var(--cyan); text-decoration: none; }
   footer a:hover { color: var(--teal); }
 
-  /* ── ANIMATIONS ── */
+  /* Animations */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(26px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
   }
-
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── PULSE DOT ── */
-  .pulse {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-    margin-right: 0.5rem;
-    animation: pulse 2s infinite;
-    vertical-align: middle;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,178,0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(0,255,178,0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    nav { padding: 1rem; }
-    .price-section { grid-template-columns: 1fr; }
-    .contact-wrap { grid-template-columns: 1fr; }
-    .price-actions { flex-direction: row; flex-wrap: wrap; }
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-badge { display: none; }
+    .hero { padding: 7rem 1.25rem 4rem; }
+    section { padding: 4rem 1.25rem; }
+    .acq-box { grid-template-columns: 1fr; }
+    .acq-actions { flex-direction: row; flex-wrap: wrap; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .erc-banner { grid-template-columns: 1fr; }
+    .footer-wrap { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -587,70 +710,129 @@
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">AGENTIC<span>WHOIS</span>.COM</div>
-  <a href="#enquire" class="nav-cta">Acquire This Domain</a>
+  <div class="nav-right">
+    <div class="nav-badge"><span class="pulse"></span> ERC-8004 Live Mainnet</div>
+    <a href="#enquire" class="nav-cta">Strategic Acquisition</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">
-    <span class="pulse"></span>Premium Domain — Available Now
+  <div class="hero-eyebrow">
+    <div class="eyebrow-tag">Strategic Domain Acquisition</div>
+    <div class="live-pill"><span class="pulse"></span> ERC-8004 · Live on Ethereum Mainnet · Jan 2026</div>
   </div>
+
   <h1>
-    The Identity Layer<br>
-    <span class="domain">for AI Agents.</span>
+    <span class="line1">The Human-Readable</span>
+    <span class="line2">Front Door to ERC-8004.</span>
   </h1>
+
   <p class="hero-sub">
-    Who is that agent? Where does it come from?<br>
-    <em>AgenticWhois.com</em> is the definitive name<br>for the platform that answers that question.
+    Ethereum's live agent identity standard needs a <strong>Web2 explorer.</strong><br>
+    AgenticWhois.com is that name — precise, memorable, and unchallenged.
   </p>
+
   <p class="hero-desc">
-    As AI agents proliferate across enterprise systems, the need for 
-    verifiable agent identity, provenance tracking, and trust registries 
-    becomes critical infrastructure. This domain owns that conversation.
+    ERC-8004 — the trustless agent identity protocol backed by Google, Coinbase, 
+    MetaMask and the Ethereum Foundation — went live on Ethereum mainnet in January 2026. 
+    The infrastructure exists. The human-readable discovery layer does not. 
+    AgenticWhois.com is the domain that owns that opportunity.
   </p>
+
   <div class="hero-actions">
-    <a href="https://forsale.dynadot.com/agenticwhois.com?drefid=2071" target="_blank" class="btn-primary">Buy on Dynadot — £18,000</a>
-    <a href="#enquire" class="btn-secondary">Make an Enquiry</a>
+    <a href="#enquire" class="btn-primary">Make a Strategic Offer</a>
+    <a href="#erc8004" class="btn-secondary">Understand the Opportunity</a>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- USE CASES -->
-<section>
-  <div class="section-tag reveal">Platform Vision</div>
-  <h2 class="reveal">Built for the <span class="accent">Agentic Era.</span></h2>
+<!-- ERC-8004 SECTION -->
+<section id="erc8004">
+  <div class="section-tag reveal">The Protocol</div>
+  <h2 class="reveal">ERC-8004 — <span class="accent">Trustless Agents.</span></h2>
   <p class="section-lead reveal">
-    AgenticWhois positions naturally as the infrastructure brand behind 
-    agent identity, compliance, and trust — a category that barely existed 
-    two years ago and is now a boardroom priority.
+    A live Ethereum standard defining how AI agents are discovered, identified, 
+    and trusted across organisational boundaries — without centralised intermediaries.
   </p>
 
-  <div class="use-cases reveal">
-    <div class="use-case">
-      <div class="use-case-icon">[ 01 ] REGISTRY</div>
-      <h3>Agent Identity Registry</h3>
-      <p>A verifiable directory of deployed AI agents — who built them, what they're authorised to do, and how to query their provenance in real time.</p>
+  <div class="erc-banner reveal">
+    <div class="erc-badge">LIVE · MAINNET</div>
+    <div class="erc-text">
+      <h3>Deployed on Ethereum Mainnet — 29 January 2026</h3>
+      <p>
+        ERC-8004 introduces three on-chain registries — <strong>Identity, Reputation, and Validation</strong> — 
+        that make AI agents discoverable and trustworthy across organisational boundaries. 
+        Already deployed across <strong>20+ EVM-compatible networks</strong>, with endorsement from 
+        Taiko, EigenLayer, The Graph, and ENS. This is not a proposal. It is live infrastructure.
+      </p>
     </div>
-    <div class="use-case">
-      <div class="use-case-icon">[ 02 ] COMPLIANCE</div>
-      <h3>Regulatory Trust Layer</h3>
-      <p>As AI governance frameworks mature, enterprises will need agent identity compliance tooling. AgenticWhois is the name regulators and auditors will trust.</p>
+  </div>
+
+  <div class="backers reveal">
+    <div class="backer">Ethereum Foundation</div>
+    <div class="backer">Google</div>
+    <div class="backer">Coinbase</div>
+    <div class="backer">MetaMask</div>
+    <div class="backer">EigenLayer</div>
+    <div class="backer">ENS</div>
+    <div class="backer">The Graph</div>
+    <div class="backer">Taiko</div>
+  </div>
+
+  <div class="registry-grid reveal" style="margin-top:3rem">
+    <div class="reg-card">
+      <div class="reg-number">[ REGISTRY 01 ]</div>
+      <h3>Identity Registry</h3>
+      <div class="reg-sub">ERC-721 · Portable · Censorship-Resistant</div>
+      <p>
+        Every agent receives an on-chain ERC-721 identity token whose tokenURI resolves 
+        to a registration file. <strong>AgenticWhois becomes the human-readable resolver</strong> — 
+        the interface that turns a token ID into a comprehensible agent profile.
+      </p>
     </div>
-    <div class="use-case">
-      <div class="use-case-icon">[ 03 ] API</div>
-      <h3>Identity Lookup API</h3>
-      <p>A Whois-style lookup service for AI agents — enabling any system to query the origin, permissions, and trust status of an agent acting on its behalf.</p>
+    <div class="reg-card">
+      <div class="reg-number">[ REGISTRY 02 ]</div>
+      <h3>Reputation Registry</h3>
+      <div class="reg-sub">On-Chain Signals · Composable · Open</div>
+      <p>
+        Standardised feedback signals posted on-chain, aggregated off-chain. 
+        <strong>AgenticWhois surfaces reputation scores</strong> in a format enterprises and 
+        developers can actually use — without querying a smart contract directly.
+      </p>
     </div>
-    <div class="use-case">
-      <div class="use-case-icon">[ 04 ] PLATFORM</div>
-      <h3>Agentic Access Control</h3>
-      <p>Authentication and authorisation infrastructure designed specifically for non-human principals — the IAM layer built for the age of autonomous systems.</p>
+    <div class="reg-card">
+      <div class="reg-number">[ REGISTRY 03 ]</div>
+      <h3>Validation Registry</h3>
+      <div class="reg-sub">Crypto-Economic · TEE Attestation · ZK Proofs</div>
+      <p>
+        Independent verification of agent capabilities — reputation, validator networks, 
+        and TEE attestation. <strong>AgenticWhois translates this</strong> into an auditable 
+        compliance interface for enterprise buyers.
+      </p>
     </div>
+  </div>
+
+  <div class="terminal reveal">
+    <div><span class="t-prompt">$</span> <span class="t-cmd">agenticwhois --lookup agent:0x8004A169</span></div>
+    <span class="t-section">// ERC-8004 Identity Resolution</span>
+    <div><span class="t-key">agent_id:</span>        <span class="t-val">0x8004A169FB4a3325136EB29fA0ceB6D2e539a432</span></div>
+    <div><span class="t-key">registry:</span>        <span class="t-val">IdentityRegistry · Ethereum Mainnet</span></div>
+    <div><span class="t-key">owner:</span>           <span class="t-addr">0x742d35Cc6634C0532925a3b8D4C9E3Df9f4C2819</span></div>
+    <span class="t-section">// Trust Signals</span>
+    <div><span class="t-key">reputation:</span>      <span class="t-ok">94.7 / 100 · 1,847 interactions</span></div>
+    <div><span class="t-key">validation:</span>      <span class="t-ok">TEE Attested · Oasis ROFL · Verified</span></div>
+    <div><span class="t-key">endpoints:</span>       <span class="t-val">MCP · A2A · x402 Payment-Ready</span></div>
+    <span class="t-section">// Domain Intelligence</span>
+    <div><span class="t-key">domain:</span>          <span class="t-val">agenticwhois.com</span></div>
+    <div><span class="t-key">role:</span>            <span class="t-val">Human-readable ERC-8004 explorer layer</span></div>
+    <div><span class="t-key">status:</span>          <span class="t-ok">AVAILABLE FOR STRATEGIC ACQUISITION</span></div>
   </div>
 </section>
 
@@ -659,87 +841,123 @@
 <!-- WHY THIS DOMAIN -->
 <section>
   <div class="section-tag reveal">Domain Intelligence</div>
-  <h2 class="reveal">Why <span class="accent">AgenticWhois</span> wins.</h2>
+  <h2 class="reveal">Why <span class="accent">AgenticWhois</span> is the <span class="gold">only</span> name.</h2>
   <p class="section-lead reveal">
-    The name is not a metaphor — it's a precise technical statement. 
-    Whois is the established internet standard for identity lookup. 
-    Agentic is the defining architectural shift in AI. Together, they own a category.
+    Whois is the internet's established identity lookup standard. Agentic is the defining 
+    architectural shift in AI. Together, on a .com, they form a name with zero serious 
+    competition — and a live protocol underneath it.
   </p>
 
-  <div class="domain-stats reveal">
-    <div class="stat">
-      <div class="stat-number">.COM</div>
-      <div class="stat-label">The only TLD that matters for enterprise infrastructure trust</div>
+  <div class="why-grid reveal">
+    <div class="why-item">
+      <div class="why-val">.COM</div>
+      <div class="why-label">The only TLD enterprises trust for infrastructure identity tooling</div>
     </div>
-    <div class="stat">
-      <div class="stat-number">2-Word</div>
-      <div class="stat-label">Compound name with precise technical meaning — not a pun, not a portmanteau</div>
+    <div class="why-item">
+      <div class="why-val">20+</div>
+      <div class="why-label">EVM networks where ERC-8004 registries are already deployed</div>
     </div>
-    <div class="stat">
-      <div class="stat-number">Zero</div>
-      <div class="stat-label">Direct competitors for this exact name in the .com namespace</div>
+    <div class="why-item gold-border">
+      <div class="why-val">100+</div>
+      <div class="why-label">Industry leaders who contributed to ERC-8004 — Google, Coinbase, MetaMask and more</div>
     </div>
-    <div class="stat">
-      <div class="stat-number">Now</div>
-      <div class="stat-label">The agentic AI infrastructure market is forming — category leaders are named today</div>
+    <div class="why-item gold-border">
+      <div class="why-val">Zero</div>
+      <div class="why-label">Direct competitors for this exact domain in the .com namespace</div>
     </div>
-  </div>
-
-  <div class="terminal reveal">
-    <div><span class="t-prompt">$</span> <span class="t-cmd">whois agenticwhois.com</span></div>
-    <div><span class="t-comment">// Domain Intelligence Report</span></div>
-    <div><span class="t-key">domain:</span>        <span class="t-val">agenticwhois.com</span></div>
-    <div><span class="t-key">category:</span>      <span class="t-val">AI Infrastructure / Identity</span></div>
-    <div><span class="t-key">market-fit:</span>    <span class="t-val">Enterprise AI · LLM Platforms · Agent Frameworks</span></div>
-    <div><span class="t-key">memorability:</span>  <span class="t-val">HIGH — instant recall, technical precision</span></div>
-    <div><span class="t-key">status:</span>        <span class="t-val teal">AVAILABLE FOR ACQUISITION</span></div>
-    <div><span class="t-key">asking-price:</span>  <span class="t-val">GBP 18,000 // offers considered</span></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- PRICE -->
+<!-- USE CASES -->
+<section>
+  <div class="section-tag reveal">Platform Opportunity</div>
+  <h2 class="reveal">What a buyer <span class="accent">builds</span> with this.</h2>
+  <p class="section-lead reveal">
+    The ERC-8004 on-chain infrastructure is live. What the ecosystem 
+    lacks is the Web2 interface layer that makes it accessible to developers, 
+    enterprises, and regulators. That is AgenticWhois.
+  </p>
+
+  <div class="use-grid reveal">
+    <div class="use-card">
+      <div class="use-icon">[ 01 ] EXPLORER</div>
+      <h3>Agent Identity Explorer</h3>
+      <p>A Etherscan-style interface for ERC-8004 — search, browse, and resolve registered agents by name, capability, or reputation score.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">[ 02 ] COMPLIANCE</div>
+      <h3>Enterprise Audit Layer</h3>
+      <p>As AI governance frameworks mature globally, compliance teams need an auditable agent identity record. AgenticWhois is the natural compliance interface.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">[ 03 ] API</div>
+      <h3>Identity Lookup API</h3>
+      <p>A Whois-style REST API enabling any system to query agent provenance, trust status, and validation results programmatically — without touching a smart contract.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">[ 04 ] MARKETPLACE</div>
+      <h3>Agent Discovery Marketplace</h3>
+      <p>A curated directory of ERC-8004 registered agents — discoverable by capability, reputation tier, and validation status. The App Store for the agent economy.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ACQUISITION -->
 <section id="acquire">
   <div class="section-tag reveal">Acquisition</div>
-  <h2 class="reveal">Secure the <span class="accent">name</span> before someone else does.</h2>
+  <h2 class="reveal">A category name. <span class="gold">One opportunity.</span></h2>
+  <p class="section-lead reveal">
+    ERC-8004 is live. The ecosystem is forming. Category-defining infrastructure 
+    brands are claimed in the earliest months — not after the market matures. 
+    This window is narrow.
+  </p>
 
-  <div class="price-section reveal">
+  <div class="acq-box reveal">
     <div>
-      <div class="price-label">Asking Price</div>
-      <div class="price-amount"><span>£</span>18,000</div>
-      <div class="price-note">Offers around this figure invited · Secure transaction via Dynadot marketplace</div>
+      <div class="acq-label">Offers Invited From</div>
+      <div class="acq-price"><span class="curr">£</span>18,000</div>
+      <div class="acq-note">
+        Minimum offer via Dynadot marketplace · Serious offers considered at any level above floor<br>
+        Secure escrow-backed transfer · Immediate upon completion
+      </div>
     </div>
-    <div class="price-actions">
-      <a href="https://forsale.dynadot.com/agenticwhois.com?drefid=2071" target="_blank" class="btn-primary">Buy Now on Dynadot</a>
-      <a href="#enquire" class="btn-secondary">Discuss a Deal</a>
+    <div class="acq-actions">
+      <a href="https://www.dynadot.com" target="_blank" class="btn-gold">Make Offer on Dynadot</a>
+      <a href="#enquire" class="btn-secondary">Private Enquiry</a>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ENQUIRY -->
+<!-- CONTACT -->
 <section id="enquire">
   <div class="section-tag reveal">Contact</div>
-  <h2 class="reveal">Start a <span class="accent">conversation.</span></h2>
+  <h2 class="reveal">Start a <span class="accent">serious conversation.</span></h2>
 
-  <div class="contact-wrap">
+  <div class="contact-grid">
     <div class="contact-info reveal">
-      <h3>Serious enquiries welcome.</h3>
+      <h3>For funded teams and strategic buyers.</h3>
       <p>
-        Whether you're a funded startup, an enterprise product team, or a strategic investor 
-        building in the agentic AI space — if this name is right for your vision, 
-        let's talk.
+        Whether you are building on ERC-8004 directly, developing agent infrastructure, 
+        or positioning for the emerging agentic economy — if this domain belongs in your 
+        product roadmap, we want to hear from you.
       </p>
       <p>
-        Prefer to transact securely through a marketplace? The domain is listed 
-        and priced on Dynadot for a safe, escrow-backed transfer.
+        Prefer marketplace security? The domain is listed on Dynadot with a minimum 
+        offer of £18,000 and escrow-backed transfer available. All serious offers 
+        above the floor will be considered.
       </p>
       <div class="contact-detail">
-        <div>LISTED ON · Dynadot Marketplace</div>
-        <div>TRANSFER · Immediate upon completion</div>
-        <div>ESCROW · Available on request</div>
+        <div><span>LISTED ·</span> Dynadot Marketplace</div>
+        <div><span>MINIMUM ·</span> £18,000</div>
+        <div><span>TRANSFER ·</span> Immediate on completion</div>
+        <div><span>ESCROW ·</span> Available on request</div>
+        <div><span>CONTACT ·</span> info@domainterrier.com</div>
       </div>
     </div>
 
@@ -747,10 +965,20 @@
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Email address" required>
       <input type="text" name="company" placeholder="Company / Organisation">
-      <textarea name="message" placeholder="Tell us about your project and intended use..."></textarea>
-      <button type="submit">Send Enquiry →</button>
-      <div id="form-msg" style="font-family:var(--mono);font-size:0.75rem;color:var(--teal);display:none;margin-top:0.5rem;">
-        ✓ Message received. We'll be in touch shortly.
+      <select name="type">
+        <option value="" disabled selected>Nature of enquiry</option>
+        <option>Building on ERC-8004</option>
+        <option>AI Agent Infrastructure</option>
+        <option>Enterprise AI Platform</option>
+        <option>Strategic Investment</option>
+        <option>Domain Investment</option>
+        <option>Other</option>
+      </select>
+      <input type="text" name="offer" placeholder="Indicative offer (optional)">
+      <textarea name="message" placeholder="Tell us about your project and how this domain fits your vision..."></textarea>
+      <button type="submit">Submit Strategic Enquiry →</button>
+      <div class="form-success" id="form-msg">
+        ✓ Enquiry received.<br>We will respond to serious offers within 48 hours.
       </div>
     </form>
   </div>
@@ -758,22 +986,28 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>AgenticWhois.com · Premium Domain For Sale · Listed on Dynadot</p>
-  <p>Enquiries: <a href="mailto:info@domainterrier.com">info@domainterrier.com</a> · <a href="https://www.domainterrier.com" target="_blank">Domain Terrier</a></p>
+  <div class="footer-wrap">
+    <p>AgenticWhois.com · Strategic Domain Acquisition · ERC-8004 Explorer Opportunity</p>
+    <p>
+      <a href="mailto:info@domainterrier.com">info@domainterrier.com</a> &nbsp;·&nbsp;
+      <a href="https://www.domainterrier.com" target="_blank">Domain Terrier</a> &nbsp;·&nbsp;
+      <a href="https://www.dynadot.com" target="_blank">Listed on Dynadot</a>
+    </p>
+  </div>
 </footer>
 
 <script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
+  const io = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
 
   // Form
   function handleSubmit(e) {
@@ -781,7 +1015,7 @@
     const msg = document.getElementById('form-msg');
     msg.style.display = 'block';
     e.target.reset();
-    setTimeout(() => msg.style.display = 'none', 5000);
+    setTimeout(() => msg.style.display = 'none', 6000);
   }
 </script>
 </body>
