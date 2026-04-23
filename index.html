@@ -14,7 +14,6 @@
     --border:   #1A2840;
     --border2:  #243550;
     --cyan:     #00E5FF;
-    --cyan-dim: #00B8CC;
     --teal:     #00FFB2;
     --gold:     #FFD166;
     --white:    #EEF4FF;
@@ -36,7 +35,6 @@
     line-height: 1.6;
   }
 
-  /* Grid */
   body::before {
     content: '';
     position: fixed;
@@ -49,650 +47,164 @@
     z-index: 0;
   }
 
-  /* Orbs */
-  .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(140px);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .orb-1 {
-    width: 700px; height: 700px;
-    background: rgba(0,229,255,0.055);
-    top: -250px; right: -200px;
-    animation: drift 14s ease-in-out infinite alternate;
-  }
-  .orb-2 {
-    width: 500px; height: 500px;
-    background: rgba(0,255,178,0.035);
-    bottom: 5%; left: -150px;
-    animation: drift 18s ease-in-out infinite alternate-reverse;
-  }
-  .orb-3 {
-    width: 300px; height: 300px;
-    background: rgba(255,209,102,0.025);
-    top: 50%; right: 10%;
-    animation: drift 22s ease-in-out infinite alternate;
-  }
-  @keyframes drift {
-    from { transform: translate(0,0); }
-    to   { transform: translate(40px, 50px); }
-  }
+  .orb { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; }
+  .orb-1 { width: 700px; height: 700px; background: rgba(0,229,255,0.055); top: -250px; right: -200px; animation: drift 14s ease-in-out infinite alternate; }
+  .orb-2 { width: 500px; height: 500px; background: rgba(0,255,178,0.035); bottom: 5%; left: -150px; animation: drift 18s ease-in-out infinite alternate-reverse; }
+  .orb-3 { width: 300px; height: 300px; background: rgba(255,209,102,0.025); top: 50%; right: 10%; animation: drift 22s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0,0); } to { transform: translate(40px,50px); } }
 
-  /* Nav */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1.25rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid rgba(0,229,255,0.07);
     background: rgba(6,10,15,0.88);
     backdrop-filter: blur(16px);
   }
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--cyan);
-    letter-spacing: 0.06em;
-  }
+  .nav-logo { font-family: var(--mono); font-size: 0.85rem; color: var(--cyan); letter-spacing: 0.06em; }
   .nav-logo span { color: var(--muted); }
   .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-  .nav-badge {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--teal);
-    border: 1px solid rgba(0,255,178,0.3);
-    padding: 0.3rem 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .nav-cta {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--bg);
-    background: var(--cyan);
-    padding: 0.55rem 1.25rem;
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: background 0.2s, transform 0.2s;
-  }
+  .nav-badge { font-family: var(--mono); font-size: 0.65rem; color: var(--teal); border: 1px solid rgba(0,255,178,0.3); padding: 0.3rem 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-cta { font-family: var(--mono); font-size: 0.72rem; color: var(--bg); background: var(--cyan); padding: 0.55rem 1.25rem; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; transition: background 0.2s, transform 0.2s; }
   .nav-cta:hover { background: var(--teal); transform: translateY(-1px); }
 
-  /* Hero */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 9rem 2.5rem 5rem;
-    max-width: 1140px;
-    margin: 0 auto;
-    z-index: 1;
-  }
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-    flex-wrap: wrap;
-  }
-  .eyebrow-tag {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--cyan);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+  .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 9rem 2.5rem 5rem; max-width: 1140px; margin: 0 auto; z-index: 1; }
+
+  .hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; flex-wrap: wrap; }
+  .eyebrow-tag { font-family: var(--mono); font-size: 0.68rem; color: var(--cyan); letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; gap: 0.6rem; }
   .eyebrow-tag::before { content: '//'; color: var(--border2); }
-  .live-pill {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--teal);
-    background: rgba(0,255,178,0.08);
-    border: 1px solid rgba(0,255,178,0.25);
-    padding: 0.25rem 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .pulse {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--teal);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(0,255,178,0.5); }
-    50%      { box-shadow: 0 0 0 7px rgba(0,255,178,0); }
-  }
+  .live-pill { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); background: rgba(0,255,178,0.08); border: 1px solid rgba(0,255,178,0.25); padding: 0.25rem 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+  .tld-pill { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(255,209,102,0.08); border: 1px solid rgba(255,209,102,0.25); padding: 0.25rem 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+  .pulse { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+  .pulse-gold { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse-gold 2s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(0,255,178,0.5); } 50% { box-shadow: 0 0 0 7px rgba(0,255,178,0); } }
+  @keyframes pulse-gold { 0%,100% { box-shadow: 0 0 0 0 rgba(255,209,102,0.5); } 50% { box-shadow: 0 0 0 7px rgba(255,209,102,0); } }
 
-  .hero h1 {
-    font-family: var(--display);
-    font-size: clamp(3rem, 8vw, 6.5rem);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
-  }
+  .hero h1 { font-family: var(--display); font-size: clamp(3rem,8vw,6.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
   .hero h1 .line1 { display: block; color: var(--white); }
-  .hero h1 .line2 {
-    display: block;
-    background: linear-gradient(120deg, var(--cyan) 0%, var(--teal) 60%, var(--gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .hero h1 .line2 { display: block; background: linear-gradient(120deg, var(--cyan) 0%, var(--teal) 60%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-  .hero-sub {
-    font-family: var(--display);
-    font-size: clamp(1rem, 2.2vw, 1.45rem);
-    font-weight: 500;
-    color: var(--muted2);
-    max-width: 680px;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-  }
+  .hero-sub { font-family: var(--display); font-size: clamp(1rem,2.2vw,1.45rem); font-weight: 500; color: var(--muted2); max-width: 720px; margin-bottom: 1.5rem; line-height: 1.5; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
   .hero-sub strong { color: var(--white); font-weight: 600; }
+  .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 580px; line-height: 1.8; font-weight: 300; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 1s forwards; }
 
-  .hero-desc {
-    font-size: 0.95rem;
-    color: var(--muted);
-    max-width: 560px;
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.8s forwards;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.8s 1s forwards;
-  }
-  .btn-primary {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    background: var(--cyan);
-    color: var(--bg);
-    text-decoration: none;
-    font-weight: 700;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 28px rgba(0,229,255,0.22);
-  }
-  .btn-primary:hover {
-    background: var(--teal);
-    transform: translateY(-2px);
-    box-shadow: 0 0 40px rgba(0,255,178,0.3);
-  }
-  .btn-secondary {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    border: 1px solid var(--border2);
-    color: var(--muted2);
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .btn-primary { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem; background: var(--cyan); color: var(--bg); text-decoration: none; font-weight: 700; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 28px rgba(0,229,255,0.22); }
+  .btn-primary:hover { background: var(--teal); transform: translateY(-2px); box-shadow: 0 0 40px rgba(0,255,178,0.3); }
+  .btn-secondary { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem; border: 1px solid var(--border2); color: var(--muted2); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
   .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+  .btn-gold { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 1.5rem; background: var(--gold); color: var(--bg); text-decoration: none; font-weight: 700; text-align: center; transition: opacity 0.2s, transform 0.2s; box-shadow: 0 0 24px rgba(255,209,102,0.2); }
+  .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
 
-  /* Divider */
-  .divider {
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-  }
+  .divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
 
-  /* Sections */
-  section {
-    position: relative;
-    z-index: 1;
-    padding: 6rem 2.5rem;
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  .section-tag {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--cyan);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+  section { position: relative; z-index: 1; padding: 6rem 2.5rem; max-width: 1140px; margin: 0 auto; }
+  .section-tag { font-family: var(--mono); font-size: 0.65rem; color: var(--cyan); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
   .section-tag::before { content: '//'; color: var(--border2); }
-  section h2 {
-    font-family: var(--display);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
+  section h2 { font-family: var(--display); font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
   section h2 .accent { color: var(--cyan); }
   section h2 .gold { color: var(--gold); }
-  .section-lead {
-    font-size: 1rem;
-    color: var(--muted2);
-    max-width: 600px;
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 3rem;
-  }
+  .section-lead { font-size: 1rem; color: var(--muted2); max-width: 620px; line-height: 1.8; font-weight: 300; margin-bottom: 3rem; }
 
-  /* ERC Banner */
-  .erc-banner {
-    border: 1px solid rgba(0,255,178,0.2);
-    border-left: 3px solid var(--teal);
-    background: rgba(0,255,178,0.04);
-    padding: 1.75rem 2rem;
-    margin-bottom: 3rem;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
-  .erc-badge {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--bg);
-    background: var(--teal);
-    padding: 0.4rem 0.75rem;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-    font-weight: 700;
-  }
-  .erc-text h3 {
-    font-family: var(--display);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--teal);
-    margin-bottom: 0.4rem;
-  }
-  .erc-text p {
-    font-size: 0.87rem;
-    color: var(--muted2);
-    line-height: 1.7;
-    font-weight: 300;
-  }
+  /* Package Box */
+  .package-box { border: 1px solid rgba(255,209,102,0.2); border-top: 2px solid var(--gold); background: rgba(255,209,102,0.03); padding: 2.5rem; margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .package-item { border-left: 2px solid var(--gold); padding-left: 1.5rem; }
+  .pkg-label { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .pkg-name { font-family: var(--display); font-size: 1.4rem; font-weight: 800; color: var(--white); margin-bottom: 0.4rem; }
+  .pkg-name.gold { color: var(--gold); }
+  .pkg-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .pkg-tag { font-family: var(--mono); font-size: 0.62rem; color: var(--teal); margin-top: 0.6rem; letter-spacing: 0.08em; }
+
+  /* Banners */
+  .erc-banner { border: 1px solid rgba(0,255,178,0.2); border-left: 3px solid var(--teal); background: rgba(0,255,178,0.04); padding: 1.75rem 2rem; margin-bottom: 2rem; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start; }
+  .erc-badge { font-family: var(--mono); font-size: 0.7rem; color: var(--bg); background: var(--teal); padding: 0.4rem 0.75rem; letter-spacing: 0.1em; white-space: nowrap; font-weight: 700; }
+  .erc-text h3 { font-family: var(--display); font-size: 1rem; font-weight: 700; color: var(--teal); margin-bottom: 0.4rem; }
+  .erc-text p { font-size: 0.87rem; color: var(--muted2); line-height: 1.7; font-weight: 300; }
   .erc-text p strong { color: var(--white); font-weight: 500; }
 
+  .tld-banner { border: 1px solid rgba(255,209,102,0.2); border-left: 3px solid var(--gold); background: rgba(255,209,102,0.04); padding: 1.75rem 2rem; margin-bottom: 2rem; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start; }
+  .tld-badge { font-family: var(--mono); font-size: 0.7rem; color: var(--bg); background: var(--gold); padding: 0.4rem 0.75rem; letter-spacing: 0.1em; white-space: nowrap; font-weight: 700; }
+  .tld-text h3 { font-family: var(--display); font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 0.4rem; }
+  .tld-text p { font-size: 0.87rem; color: var(--muted2); line-height: 1.7; font-weight: 300; }
+  .tld-text p strong { color: var(--white); font-weight: 500; }
+
   /* Backers */
-  .backers {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-  .backer {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--muted2);
-    border: 1px solid var(--border2);
-    padding: 0.4rem 1rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .backers { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .backer { font-family: var(--mono); font-size: 0.68rem; color: var(--muted2); border: 1px solid var(--border2); padding: 0.4rem 1rem; letter-spacing: 0.1em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
   .backer:hover { border-color: var(--cyan); color: var(--cyan); }
 
-  /* Registry Cards */
-  .registry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 2.5rem;
-  }
-  .reg-card {
-    background: var(--bg2);
-    padding: 2.25rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-  }
+  /* Registry Grid */
+  .registry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
+  .reg-card { background: var(--bg2); padding: 2.25rem; position: relative; overflow: hidden; transition: background 0.3s; }
   .reg-card:hover { background: var(--surface); }
-  .reg-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--cyan), var(--teal));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
-  }
+  .reg-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
   .reg-card:hover::after { transform: scaleX(1); }
-  .reg-number {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    color: var(--cyan);
-    letter-spacing: 0.2em;
-    margin-bottom: 1rem;
-    opacity: 0.7;
-  }
-  .reg-card h3 {
-    font-family: var(--display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .reg-card .reg-sub {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--teal);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.85rem;
-    opacity: 0.8;
-  }
-  .reg-card p {
-    font-size: 0.87rem;
-    color: var(--muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
+  .reg-number { font-family: var(--mono); font-size: 0.62rem; color: var(--cyan); letter-spacing: 0.2em; margin-bottom: 1rem; opacity: 0.7; }
+  .reg-card h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .reg-card .reg-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--teal); letter-spacing: 0.1em; margin-bottom: 0.85rem; opacity: 0.8; }
+  .reg-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
   .reg-card p strong { color: var(--muted2); font-weight: 400; }
 
   /* Terminal */
-  .terminal {
-    background: #030609;
-    border: 1px solid var(--border);
-    border-top: 2px solid var(--cyan);
-    padding: 2.25rem;
-    margin-top: 3rem;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    line-height: 2.1;
-    position: relative;
-  }
-  .terminal::before {
-    content: '● ● ●';
-    display: block;
-    color: var(--border2);
-    letter-spacing: 0.4em;
-    margin-bottom: 1.25rem;
-    font-size: 0.55rem;
-  }
-  .t-prompt { color: var(--teal); }
-  .t-cmd    { color: var(--white); }
-  .t-key    { color: var(--cyan); }
-  .t-val    { color: #9B8FFF; }
-  .t-addr   { color: var(--gold); font-size: 0.72rem; }
-  .t-ok     { color: var(--teal); }
-  .t-comment{ color: var(--muted); }
-  .t-section{ color: var(--border2); margin-top: 0.5rem; display: block; }
+  .terminal { background: #030609; border: 1px solid var(--border); border-top: 2px solid var(--cyan); padding: 2.25rem; margin-top: 3rem; font-family: var(--mono); font-size: 0.8rem; line-height: 2.1; }
+  .terminal::before { content: '● ● ●'; display: block; color: var(--border2); letter-spacing: 0.4em; margin-bottom: 1.25rem; font-size: 0.55rem; }
+  .t-prompt { color: var(--teal); } .t-cmd { color: var(--white); } .t-key { color: var(--cyan); } .t-val { color: #9B8FFF; } .t-addr { color: var(--gold); font-size: 0.72rem; } .t-ok { color: var(--teal); } .t-gold { color: var(--gold); } .t-comment { color: var(--muted); } .t-section { color: var(--border2); margin-top: 0.5rem; display: block; }
 
-  /* Why section stats */
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .why-item {
-    border-left: 2px solid var(--cyan);
-    padding-left: 1.5rem;
-  }
+  /* Why Grid */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; margin-top: 3rem; }
+  .why-item { border-left: 2px solid var(--cyan); padding-left: 1.5rem; }
   .why-item.gold-border { border-left-color: var(--gold); }
-  .why-val {
-    font-family: var(--mono);
-    font-size: 1.8rem;
-    color: var(--cyan);
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
+  .why-val { font-family: var(--mono); font-size: 1.8rem; color: var(--cyan); font-weight: 700; line-height: 1; margin-bottom: 0.4rem; }
   .why-item.gold-border .why-val { color: var(--gold); }
-  .why-label {
-    font-size: 0.83rem;
-    color: var(--muted);
-    line-height: 1.5;
-    font-weight: 300;
-  }
+  .why-label { font-size: 0.83rem; color: var(--muted); line-height: 1.5; font-weight: 300; }
 
-  /* Use cases */
-  .use-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 2.5rem;
-  }
-  .use-card {
-    background: var(--bg2);
-    padding: 2rem;
-    transition: background 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
+  /* Use Grid */
+  .use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
+  .use-card { background: var(--bg2); padding: 2rem; transition: background 0.3s; position: relative; overflow: hidden; }
   .use-card:hover { background: var(--surface); }
-  .use-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--cyan));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
-  }
+  .use-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
   .use-card:hover::before { transform: scaleX(1); }
-  .use-icon {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    color: var(--gold);
-    letter-spacing: 0.18em;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-  }
-  .use-card h3 {
-    font-family: var(--display);
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .use-card p {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
+  .use-card.tld-card::before { background: linear-gradient(90deg, var(--gold), var(--teal)); }
+  .use-icon { font-family: var(--mono); font-size: 0.62rem; color: var(--gold); letter-spacing: 0.18em; margin-bottom: 1rem; opacity: 0.9; }
+  .use-card h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .use-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .tld-status { font-family: var(--mono); font-size: 0.65rem; color: var(--gold); border: 1px solid rgba(255,209,102,0.3); padding: 0.25rem 0.6rem; display: inline-block; margin-top: 0.85rem; letter-spacing: 0.1em; }
 
   /* Acquisition */
-  .acq-box {
-    border: 1px solid var(--border2);
-    border-top: 2px solid var(--gold);
-    background: var(--bg2);
-    padding: 3rem;
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: center;
-  }
-  .acq-label {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
-  .acq-price {
-    font-family: var(--display);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
+  .acq-box { border: 1px solid var(--border2); border-top: 2px solid var(--gold); background: var(--bg2); padding: 3rem; margin-top: 3rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+  .acq-label { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .acq-price { font-family: var(--display); font-size: clamp(2rem,5vw,3.5rem); font-weight: 800; line-height: 1; margin-bottom: 0.5rem; }
   .acq-price .curr { color: var(--gold); }
-  .acq-note {
-    font-size: 0.82rem;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-  .acq-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    min-width: 210px;
-  }
-  .btn-gold {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 1.5rem;
-    background: var(--gold);
-    color: var(--bg);
-    text-decoration: none;
-    font-weight: 700;
-    text-align: center;
-    transition: opacity 0.2s, transform 0.2s;
-    box-shadow: 0 0 24px rgba(255,209,102,0.2);
-  }
-  .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
+  .acq-note { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+  .acq-includes { font-family: var(--mono); font-size: 0.7rem; color: var(--gold); letter-spacing: 0.08em; margin-top: 0.75rem; line-height: 2; }
+  .acq-actions { display: flex; flex-direction: column; gap: 0.75rem; min-width: 210px; }
 
   /* Contact */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
-    align-items: start;
-  }
-  .contact-info h3 {
-    font-family: var(--display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  .contact-info p {
-    font-size: 0.88rem;
-    color: var(--muted2);
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-  }
-  .contact-detail {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--cyan);
-    letter-spacing: 0.05em;
-    line-height: 2.2;
-  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .contact-info h3 { font-family: var(--display); font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+  .contact-info p { font-size: 0.88rem; color: var(--muted2); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+  .contact-detail { font-family: var(--mono); font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.05em; line-height: 2.2; }
   .contact-detail span { color: var(--muted); }
 
   form { display: flex; flex-direction: column; gap: 0.85rem; }
-  form input, form textarea, form select {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--white);
-    padding: 0.9rem 1rem;
-    font-family: var(--body);
-    font-size: 0.88rem;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-    -webkit-appearance: none;
-  }
-  form input:focus, form textarea:focus, form select:focus { border-color: var(--cyan); }
-  form input::placeholder, form textarea::placeholder { color: var(--muted); }
+  form input, form select { background: var(--surface); border: 1px solid var(--border); color: var(--white); padding: 0.9rem 1rem; font-family: var(--body); font-size: 0.88rem; font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; -webkit-appearance: none; }
+  form input:focus, form select:focus { border-color: var(--cyan); }
+  form input::placeholder { color: var(--muted); }
   form select { color: var(--muted); cursor: pointer; }
   form select option { background: var(--surface); color: var(--white); }
-  form textarea { height: 110px; resize: vertical; }
-  form button {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 1rem;
-    background: var(--cyan);
-    color: var(--bg);
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 0 20px rgba(0,229,255,0.18);
-  }
+  form button { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem; background: var(--cyan); color: var(--bg); border: none; cursor: pointer; font-weight: 700; transition: background 0.2s, transform 0.2s; box-shadow: 0 0 20px rgba(0,229,255,0.18); }
   form button:hover { background: var(--teal); transform: translateY(-1px); }
-  .form-success {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--teal);
-    display: none;
-    margin-top: 0.5rem;
-    line-height: 1.6;
-  }
+  .form-success { font-family: var(--mono); font-size: 0.72rem; color: var(--teal); display: none; margin-top: 0.5rem; line-height: 1.6; }
 
-  /* Footer */
-  .footer-wrap {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 2rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  footer p {
-    font-family: var(--mono);
-    font-size: 0.67rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
+  .footer-wrap { position: relative; z-index: 1; border-top: 1px solid var(--border); max-width: 1140px; margin: 0 auto; padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-family: var(--mono); font-size: 0.67rem; color: var(--muted); letter-spacing: 0.05em; }
   footer a { color: var(--cyan); text-decoration: none; }
   footer a:hover { color: var(--teal); }
 
-  /* Animations */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .reveal {
-    opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.75s ease, transform 0.75s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* Responsive */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.25rem; }
     .nav-badge { display: none; }
@@ -701,7 +213,8 @@
     .acq-box { grid-template-columns: 1fr; }
     .acq-actions { flex-direction: row; flex-wrap: wrap; }
     .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .erc-banner { grid-template-columns: 1fr; }
+    .erc-banner, .tld-banner { grid-template-columns: 1fr; }
+    .package-box { grid-template-columns: 1fr; }
     .footer-wrap { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
   }
 </style>
@@ -712,7 +225,6 @@
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">AGENTIC<span>WHOIS</span>.COM</div>
   <div class="nav-right">
@@ -721,28 +233,29 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">
-    <div class="eyebrow-tag">Strategic Domain Acquisition</div>
-    <div class="live-pill"><span class="pulse"></span> ERC-8004 · Live on Ethereum Mainnet · Jan 2026</div>
+    <div class="eyebrow-tag">Strategic Package Acquisition</div>
+    <div class="live-pill"><span class="pulse"></span> ERC-8004 · Live Ethereum Mainnet · Jan 2026</div>
+    <div class="tld-pill"><span class="pulse-gold"></span> .agenticwhois TLD · Private Mode · Zero SLDs</div>
   </div>
 
   <h1>
-    <span class="line1">The Human-Readable</span>
-    <span class="line2">Front Door to ERC-8004.</span>
+    <span class="line1">Own the Entire</span>
+    <span class="line2">AgenticWhois Namespace.</span>
   </h1>
 
   <p class="hero-sub">
-    Ethereum's live agent identity standard needs a <strong>Web2 explorer.</strong><br>
-    AgenticWhois.com is that name — precise, memorable, and unchallenged.
+    <strong>agenticwhois.com</strong> — the Web2 front door — plus the matching
+    <strong>.agenticwhois TLD</strong> — the Web3 namespace — together form
+    the complete brand and infrastructure package for the ERC-8004 era.
   </p>
 
   <p class="hero-desc">
-    ERC-8004 — the trustless agent identity protocol backed by Google, Coinbase, 
-    MetaMask and the Ethereum Foundation — went live on Ethereum mainnet in January 2026. 
-    The infrastructure exists. The human-readable discovery layer does not. 
-    AgenticWhois.com is the domain that owns that opportunity.
+    ERC-8004 — the trustless agent identity protocol backed by Google, Coinbase,
+    MetaMask and the Ethereum Foundation — went live on Ethereum mainnet in January 2026.
+    The infrastructure exists. The human-readable discovery layer does not.
+    This package owns that opportunity across both the legacy and decentralised web.
   </p>
 
   <div class="hero-actions">
@@ -753,12 +266,37 @@
 
 <hr class="divider">
 
-<!-- ERC-8004 SECTION -->
+<section>
+  <div class="section-tag reveal">The Package</div>
+  <h2 class="reveal">Web2 <span class="accent">+</span> Web3. <span class="gold">Complete ownership.</span></h2>
+  <p class="section-lead reveal">
+    This is not just a domain name. It is a complete namespace acquisition spanning
+    the legacy web and the decentralised agent economy — two assets, one brand, zero competition.
+  </p>
+
+  <div class="package-box reveal">
+    <div class="package-item">
+      <div class="pkg-label">Asset One · Legacy Web</div>
+      <div class="pkg-name">agenticwhois.com</div>
+      <div class="pkg-desc">The premium .com anchor. Human-readable, enterprise-trusted, immediately deployable as the Web2 explorer and interface layer for ERC-8004 agent identity lookups.</div>
+      <div class="pkg-tag">✓ Live · Vercel Deployed · Immediate Transfer</div>
+    </div>
+    <div class="package-item">
+      <div class="pkg-label">Asset Two · Web3 Namespace</div>
+      <div class="pkg-name gold">.agenticwhois TLD</div>
+      <div class="pkg-desc">A matching Web3 top-level domain held in Private Mode. Zero SLDs minted. A buyer acquires a completely clean namespace — ready to issue agent identities such as validator.agenticwhois or registry.agenticwhois from day one.</div>
+      <div class="pkg-tag">✓ Private Mode · Zero SLDs · Clean Transfer Guaranteed</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
 <section id="erc8004">
   <div class="section-tag reveal">The Protocol</div>
   <h2 class="reveal">ERC-8004 — <span class="accent">Trustless Agents.</span></h2>
   <p class="section-lead reveal">
-    A live Ethereum standard defining how AI agents are discovered, identified, 
+    A live Ethereum standard defining how AI agents are discovered, identified,
     and trusted across organisational boundaries — without centralised intermediaries.
   </p>
 
@@ -766,12 +304,15 @@
     <div class="erc-badge">LIVE · MAINNET</div>
     <div class="erc-text">
       <h3>Deployed on Ethereum Mainnet — 29 January 2026</h3>
-      <p>
-        ERC-8004 introduces three on-chain registries — <strong>Identity, Reputation, and Validation</strong> — 
-        that make AI agents discoverable and trustworthy across organisational boundaries. 
-        Already deployed across <strong>20+ EVM-compatible networks</strong>, with endorsement from 
-        Taiko, EigenLayer, The Graph, and ENS. This is not a proposal. It is live infrastructure.
-      </p>
+      <p>ERC-8004 introduces three on-chain registries — <strong>Identity, Reputation, and Validation</strong> — that make AI agents discoverable and trustworthy across organisational boundaries. Already deployed across <strong>20+ EVM-compatible networks</strong>, with endorsement from Taiko, EigenLayer, The Graph, and ENS. This is not a proposal. It is live infrastructure.</p>
+    </div>
+  </div>
+
+  <div class="tld-banner reveal">
+    <div class="tld-badge">TLD · PRIVATE</div>
+    <div class="tld-text">
+      <h3>.agenticwhois — The Matching Web3 Namespace</h3>
+      <p>The <strong>.agenticwhois TLD</strong> is held in Private Mode — only the owner can mint SLDs. <strong>Zero second-level domains have been registered.</strong> A buyer acquires a completely sterile, enterprise-ready namespace. No squatters, no trademark conflicts, no cleanup required. Toggle public access the moment you are ready to launch.</p>
     </div>
   </div>
 
@@ -791,31 +332,19 @@
       <div class="reg-number">[ REGISTRY 01 ]</div>
       <h3>Identity Registry</h3>
       <div class="reg-sub">ERC-721 · Portable · Censorship-Resistant</div>
-      <p>
-        Every agent receives an on-chain ERC-721 identity token whose tokenURI resolves 
-        to a registration file. <strong>AgenticWhois becomes the human-readable resolver</strong> — 
-        the interface that turns a token ID into a comprehensible agent profile.
-      </p>
+      <p>Every agent receives an on-chain ERC-721 identity token. <strong>AgenticWhois becomes the human-readable resolver</strong> — turning a token ID into a comprehensible agent profile. The .agenticwhois TLD issues the agent's native Web3 address.</p>
     </div>
     <div class="reg-card">
       <div class="reg-number">[ REGISTRY 02 ]</div>
       <h3>Reputation Registry</h3>
       <div class="reg-sub">On-Chain Signals · Composable · Open</div>
-      <p>
-        Standardised feedback signals posted on-chain, aggregated off-chain. 
-        <strong>AgenticWhois surfaces reputation scores</strong> in a format enterprises and 
-        developers can actually use — without querying a smart contract directly.
-      </p>
+      <p>Standardised feedback signals posted on-chain, aggregated off-chain. <strong>AgenticWhois surfaces reputation scores</strong> in a format enterprises and developers can actually use — without querying a smart contract directly.</p>
     </div>
     <div class="reg-card">
       <div class="reg-number">[ REGISTRY 03 ]</div>
       <h3>Validation Registry</h3>
       <div class="reg-sub">Crypto-Economic · TEE Attestation · ZK Proofs</div>
-      <p>
-        Independent verification of agent capabilities — reputation, validator networks, 
-        and TEE attestation. <strong>AgenticWhois translates this</strong> into an auditable 
-        compliance interface for enterprise buyers.
-      </p>
+      <p>Independent verification of agent capabilities. <strong>AgenticWhois translates this</strong> into an auditable compliance interface for enterprise buyers and regulators.</p>
     </div>
   </div>
 
@@ -829,104 +358,113 @@
     <div><span class="t-key">reputation:</span>      <span class="t-ok">94.7 / 100 · 1,847 interactions</span></div>
     <div><span class="t-key">validation:</span>      <span class="t-ok">TEE Attested · Oasis ROFL · Verified</span></div>
     <div><span class="t-key">endpoints:</span>       <span class="t-val">MCP · A2A · x402 Payment-Ready</span></div>
-    <span class="t-section">// Domain Intelligence</span>
-    <div><span class="t-key">domain:</span>          <span class="t-val">agenticwhois.com</span></div>
-    <div><span class="t-key">role:</span>            <span class="t-val">Human-readable ERC-8004 explorer layer</span></div>
+    <span class="t-section">// Namespace Package</span>
+    <div><span class="t-key">web2_domain:</span>     <span class="t-ok">agenticwhois.com · Live · Deployed</span></div>
+    <div><span class="t-key">web3_tld:</span>        <span class="t-gold">.agenticwhois · Private Mode · 0 SLDs Minted</span></div>
     <div><span class="t-key">status:</span>          <span class="t-ok">AVAILABLE FOR STRATEGIC ACQUISITION</span></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- WHY THIS DOMAIN -->
 <section>
   <div class="section-tag reveal">Domain Intelligence</div>
   <h2 class="reveal">Why <span class="accent">AgenticWhois</span> is the <span class="gold">only</span> name.</h2>
   <p class="section-lead reveal">
-    Whois is the internet's established identity lookup standard. Agentic is the defining 
-    architectural shift in AI. Together, on a .com, they form a name with zero serious 
-    competition — and a live protocol underneath it.
+    A precise .com, a matching Web3 TLD held clean, and a live institutional protocol underneath.
+    This combination does not exist anywhere else in the namespace.
   </p>
 
   <div class="why-grid reveal">
     <div class="why-item">
       <div class="why-val">.COM</div>
-      <div class="why-label">The only TLD enterprises trust for infrastructure identity tooling</div>
+      <div class="why-label">Enterprise-trusted legacy anchor — the only TLD that matters for infrastructure identity tooling</div>
     </div>
     <div class="why-item">
-      <div class="why-val">20+</div>
-      <div class="why-label">EVM networks where ERC-8004 registries are already deployed</div>
+      <div class="why-val">+TLD</div>
+      <div class="why-label">Matching .agenticwhois Web3 namespace — zero SLDs minted, private mode, clean transfer guaranteed</div>
     </div>
     <div class="why-item gold-border">
-      <div class="why-val">100+</div>
-      <div class="why-label">Industry leaders who contributed to ERC-8004 — Google, Coinbase, MetaMask and more</div>
+      <div class="why-val">20+</div>
+      <div class="why-label">EVM networks where ERC-8004 registries are already live and deployed</div>
     </div>
     <div class="why-item gold-border">
       <div class="why-val">Zero</div>
-      <div class="why-label">Direct competitors for this exact domain in the .com namespace</div>
+      <div class="why-label">Direct competitors for this combined Web2 and Web3 namespace package</div>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- USE CASES -->
 <section>
   <div class="section-tag reveal">Platform Opportunity</div>
   <h2 class="reveal">What a buyer <span class="accent">builds</span> with this.</h2>
   <p class="section-lead reveal">
-    The ERC-8004 on-chain infrastructure is live. What the ecosystem 
-    lacks is the Web2 interface layer that makes it accessible to developers, 
-    enterprises, and regulators. That is AgenticWhois.
+    The ERC-8004 on-chain infrastructure is live. What the ecosystem lacks is the
+    Web2 interface layer and a native Web3 namespace. This package delivers both.
   </p>
 
   <div class="use-grid reveal">
     <div class="use-card">
       <div class="use-icon">[ 01 ] EXPLORER</div>
       <h3>Agent Identity Explorer</h3>
-      <p>A Etherscan-style interface for ERC-8004 — search, browse, and resolve registered agents by name, capability, or reputation score.</p>
+      <p>An Etherscan-style interface for ERC-8004 — search, browse, and resolve registered agents by name, capability, or reputation score via agenticwhois.com.</p>
     </div>
     <div class="use-card">
       <div class="use-icon">[ 02 ] COMPLIANCE</div>
       <h3>Enterprise Audit Layer</h3>
-      <p>As AI governance frameworks mature globally, compliance teams need an auditable agent identity record. AgenticWhois is the natural compliance interface.</p>
+      <p>As AI governance frameworks mature globally, compliance teams need auditable agent identity records. AgenticWhois is the natural enterprise compliance interface.</p>
     </div>
     <div class="use-card">
       <div class="use-icon">[ 03 ] API</div>
       <h3>Identity Lookup API</h3>
-      <p>A Whois-style REST API enabling any system to query agent provenance, trust status, and validation results programmatically — without touching a smart contract.</p>
+      <p>A Whois-style REST API enabling any system to query agent provenance, trust status, and validation results — without touching a smart contract directly.</p>
+    </div>
+    <div class="use-card tld-card">
+      <div class="use-icon">[ 04 ] NAMESPACE</div>
+      <h3>Native Agent Identities</h3>
+      <p>Issue agent identities directly under the .agenticwhois TLD — validator.agenticwhois, registry.agenticwhois, audit.agenticwhois. A proprietary namespace owned outright.</p>
+      <div class="tld-status">✓ Private Mode · Ready to Deploy</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">[ 04 ] MARKETPLACE</div>
+      <div class="use-icon">[ 05 ] MARKETPLACE</div>
       <h3>Agent Discovery Marketplace</h3>
-      <p>A curated directory of ERC-8004 registered agents — discoverable by capability, reputation tier, and validation status. The App Store for the agent economy.</p>
+      <p>A curated directory of ERC-8004 registered agents — discoverable by capability, reputation tier, and validation status. The App Store for the autonomous agent economy.</p>
+    </div>
+    <div class="use-card tld-card">
+      <div class="use-icon">[ 06 ] PROTOCOL</div>
+      <h3>Full Protocol Ownership</h3>
+      <p>Own the brand across both web layers simultaneously. agenticwhois.com for the legacy web. .agenticwhois for the decentralised agent economy. Complete vertical integration.</p>
+      <div class="tld-status">✓ Web2 + Web3 · Complete Package</div>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ACQUISITION -->
 <section id="acquire">
   <div class="section-tag reveal">Acquisition</div>
-  <h2 class="reveal">A category name. <span class="gold">One opportunity.</span></h2>
+  <h2 class="reveal">A complete namespace. <span class="gold">One opportunity.</span></h2>
   <p class="section-lead reveal">
-    ERC-8004 is live. The ecosystem is forming. Category-defining infrastructure 
-    brands are claimed in the earliest months — not after the market matures. 
-    This window is narrow.
+    ERC-8004 is live. The ecosystem is forming. Category-defining infrastructure
+    brands are claimed in the earliest months — not after the market matures.
+    This package will not be available indefinitely.
   </p>
 
   <div class="acq-box reveal">
     <div>
-      <div class="acq-label">Offers Invited From</div>
+      <div class="acq-label">Minimum Offer — Complete Package</div>
       <div class="acq-price"><span class="curr">£</span>18,000</div>
-      <div class="acq-note">
-        Minimum offer via Dynadot marketplace · Serious offers considered at any level above floor<br>
-        Secure escrow-backed transfer · Immediate upon completion
+      <div class="acq-note">Serious offers above floor considered · Secure escrow-backed transfer via Dynadot</div>
+      <div class="acq-includes">
+        ✓ agenticwhois.com — Premium .com domain<br>
+        ✓ .agenticwhois TLD — Private Mode, zero SLDs minted<br>
+        ✓ Complete brand namespace across Web2 and Web3
       </div>
     </div>
     <div class="acq-actions">
-      <a href="https://www.dynadot.com/market/user-listings/agenticwhois.com" target="_blank" class="btn-gold">Make Offer on Dynadot</a>
+      <a href="https://www.dynadot.com" target="_blank" class="btn-gold">Make Offer on Dynadot</a>
       <a href="#enquire" class="btn-secondary">Private Enquiry</a>
     </div>
   </div>
@@ -934,7 +472,6 @@
 
 <hr class="divider">
 
-<!-- CONTACT -->
 <section id="enquire">
   <div class="section-tag reveal">Contact</div>
   <h2 class="reveal">Start a <span class="accent">serious conversation.</span></h2>
@@ -942,19 +479,12 @@
   <div class="contact-grid">
     <div class="contact-info reveal">
       <h3>For funded teams and strategic buyers.</h3>
-      <p>
-        Whether you are building on ERC-8004 directly, developing agent infrastructure, 
-        or positioning for the emerging agentic economy — if this domain belongs in your 
-        product roadmap, we want to hear from you.
-      </p>
-      <p>
-        Prefer marketplace security? The domain is listed on Dynadot with a minimum 
-        offer of £18,000 and escrow-backed transfer available. All serious offers 
-        above the floor will be considered.
-      </p>
+      <p>Whether you are building on ERC-8004 directly, developing agent infrastructure, or positioning for the emerging agentic economy — if this package belongs in your product roadmap, we want to hear from you.</p>
+      <p>Prefer marketplace security? The domain is listed on Dynadot with a minimum offer of £25,000 and escrow-backed transfer available. The .agenticwhois TLD transfers as part of the complete package.</p>
       <div class="contact-detail">
-        <div><span>LISTED ·</span> Dynadot Marketplace</div>
-        <div><span>MINIMUM ·</span> £18,000</div>
+        <div><span>PACKAGE ·</span> agenticwhois.com + .agenticwhois TLD</div>
+        <div><span>MINIMUM ·</span> £25,000</div>
+        <div><span>TLD STATUS ·</span> Private Mode · Zero SLDs</div>
         <div><span>TRANSFER ·</span> Immediate on completion</div>
         <div><span>ESCROW ·</span> Available on request</div>
         <div><span>CONTACT ·</span> info@domainterrier.com</div>
@@ -975,29 +505,24 @@
         <option>Other</option>
       </select>
       <input type="text" name="offer" placeholder="Indicative offer (optional)">
-      <textarea name="message" placeholder="Tell us about your project and how this domain fits your vision..."></textarea>
       <button type="submit">Submit Strategic Enquiry →</button>
-      <div class="form-success" id="form-msg">
-        ✓ Enquiry received.<br>We will respond to serious offers within 48 hours.
-      </div>
+      <div class="form-success" id="form-msg">✓ Enquiry received.<br>We will respond to serious offers within 48 hours.</div>
     </form>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-wrap">
-    <p>AgenticWhois.com · Strategic Domain Acquisition · ERC-8004 Explorer Opportunity</p>
+    <p>AgenticWhois.com · Strategic Package Acquisition · agenticwhois.com + .agenticwhois TLD</p>
     <p>
       <a href="mailto:info@domainterrier.com">info@domainterrier.com</a> &nbsp;·&nbsp;
       <a href="https://www.domainterrier.com" target="_blank">Domain Terrier</a> &nbsp;·&nbsp;
-      <a href="https://www.dynadot.com/market/user-listings/agenticwhois.com" target="_blank">Listed on Dynadot</a>
+      <a href="https://www.dynadot.com" target="_blank">Listed on Dynadot</a>
     </p>
   </div>
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
@@ -1009,7 +534,6 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => io.observe(el));
 
-  // Form
   function handleSubmit(e) {
     e.preventDefault();
     const msg = document.getElementById('form-msg');
